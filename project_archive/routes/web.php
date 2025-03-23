@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResearchRepositoryController;
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -35,5 +36,17 @@ Route::get('/dashboard', [ResearchRepositoryController::class, 'dashboard'])->na
 Route::get('/research/history', [ResearchRepositoryController::class, 'history'])->name('research.history');
 Route::get('/research/edit/{id}', [ResearchRepositoryController::class, 'edit'])->name('research.edit');
 Route::post('/research/update/{id}', [ResearchRepositoryController::class, 'update'])->name('research.update');
+
+
+
+
+
+
+Route::get('/research/{id}', [ResearchRepositoryController::class, 'show'])->name('research.show');
+Route::get('/research/edit/{id}', [ResearchRepositoryController::class, 'edit'])->name('research.edit');
+Route::post('/research/update/{id}', [ResearchRepositoryController::class, 'update'])->name('research.update');
+Route::put('/research/update/{id}', [ResearchRepositoryController::class, 'update'])->name('research.update');
+Route::get('/history', [ResearchRepositoryController::class, 'history'])->name('history');
+
 
 require __DIR__.'/auth.php';

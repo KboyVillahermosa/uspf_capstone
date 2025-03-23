@@ -47,6 +47,11 @@
                     </div>
 
                     <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg">Submit</button>
+
+                    <!-- "My Archives" Button -->
+                    <a href="{{ route('research.history') }}" class="mt-4 inline-block bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">
+                        My Archives
+                    </a>
                 </form>
             </div>
         </div>
