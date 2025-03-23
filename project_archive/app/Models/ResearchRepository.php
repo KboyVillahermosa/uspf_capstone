@@ -11,5 +11,6 @@ class ResearchRepository extends Model {
     protected $fillable = ['user_id', 'project_name', 'members', 'department', 'abstract', 'banner_image', 'file', 'approved'];
 
     // Define the relationship (Research belongs to a User)
-  
+   
+    
 }

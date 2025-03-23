@@ -40,12 +40,30 @@ class ResearchRepositoryController extends Controller {
     
     
     // ✅ Dashboard for approved research projects
-    public function dashboard() {
-        $projects = ResearchRepository::where('approved', true)->get();
-        $departments = $projects->groupBy('department'); // Categorize projects by department
-
-        return view('dashboard', compact('departments'));
+    public function dashboard(Request $request) {
+        $query = ResearchRepository::where('approved', true);
+    
+        // Initialize search variable
+        $search = null;
+    
+        // Apply search filter
+        if ($request->has('search')) {
+            $search = $request->input('search');
+            $query->where(function ($q) use ($search) {
+                $q->where('project_name', 'like', "%{$search}%")
+                  ->orWhere('members', 'like', "%{$search}%")
+                  ->orWhere('department', 'like', "%{$search}%")
+                  ->orWhere('abstract', 'like', "%{$search}%");
+            });
+        }
+    
+        $projects = $query->get();
+        $departments = $projects->groupBy('department');
+    
+        return view('dashboard', compact('departments', 'search'));
     }
+    
+    
     public function show($id)
     {
         $project = ResearchRepository::find($id);

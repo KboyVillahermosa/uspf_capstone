@@ -26,6 +26,7 @@ Route::get('/upload', function () {
     return view('upload');
 })->name('upload');
 
+
 // Store uploaded research
 Route::post('/research/store', [ResearchRepositoryController::class, 'store'])->name('research.store');
 
@@ -47,6 +48,8 @@ Route::get('/research/edit/{id}', [ResearchRepositoryController::class, 'edit'])
 Route::post('/research/update/{id}', [ResearchRepositoryController::class, 'update'])->name('research.update');
 Route::put('/research/update/{id}', [ResearchRepositoryController::class, 'update'])->name('research.update');
 Route::get('/history', [ResearchRepositoryController::class, 'history'])->name('history');
+
+Route::get('/dashboard', [ResearchRepositoryController::class, 'dashboard'])->name('dashboard');
 
 
 require __DIR__.'/auth.php';
