@@ -17,6 +17,10 @@
                     <x-nav-link :href="route('upload')" :active="request()->routeIs('upload')">
                         {{ __('Upload') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('history')" :active="request()->routeIs('history')">
+                        {{ __('History') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -75,6 +79,10 @@
 
             <x-responsive-nav-link :href="route('upload')" :active="request()->routeIs('upload')">
                 {{ __('Upload') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('history')" :active="request()->routeIs('history')">
+                {{ __('History') }}
             </x-responsive-nav-link>
         </div>
 
